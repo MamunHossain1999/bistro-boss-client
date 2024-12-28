@@ -10,7 +10,8 @@ import img6 from "../../assets/home/06.png";
 
 const Banner = () => {
   return (
-    <Carousel showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={false}>
+    // auto play hower jonno agula use korte hoy showArrows={true} autoPlay={true} infiniteLoop={true} showThumbs={false} but agula use korle thumble ase na
+    <Carousel>
       <div>
         <img src={img1} alt="Image 1" />
       </div>
