@@ -11,6 +11,10 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Secret from "../shared/Secret/Secret";
 import Dashboard from "../LayOut/Dashboard";
 import MenuCart from "../pages/dashboard/Card/MenuCart";
+import UserHome from "../pages/dashboard/userHome/UserHome";
+import Reservation from "../pages/dashboard/reservation/Reservation";
+import MyBooks from "../pages/dashboard/my-books/MyBooks";
+import Review from "../pages/dashboard/review/Review";
 
 
 
@@ -54,8 +58,24 @@ import MenuCart from "../pages/dashboard/Card/MenuCart";
       {
         path: "cart",
         element: <MenuCart/>
+      },
+      {
+        path:'userHome',
+        element:<UserHome/>
+      },
+      {
+        path:'reservation',
+        element:<Reservation/>
+      },
+      {
+        path: 'books',
+        element:<MyBooks/>
+      },
+      {
+        path: 'review',
+        element:<Review/>
       }
-      ]
+    ]
       
     }
   ]);
