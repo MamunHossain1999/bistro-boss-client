@@ -11,7 +11,14 @@ const HomeCard = () => {
   const {user} = useAuth()
   const handleAddToCard = food =>{
     if(user && user.email){
-        console.log('adding food to cart ', food)
+        console.log('adding food to cart ', food);
+        const cartItem = {
+          menuId: __dirname,
+          email: user.email,
+          name,
+          image,
+          price,
+        }
     }else{
       Swal.fire({
         title: "You are not login",
@@ -56,6 +63,7 @@ const HomeCard = () => {
           <div className="card-body">
             <h2 className="card-title">{card.name}</h2>
             <p>{card.recipe}</p>
+            <p>$: {card.price}</p>
             <div className="card-actions justify-center">
               <button onClick={()=> handleAddToCard(card)} className="btn border-0 border-b-4 border-yellow-300 ">ADD TO CARD</button>
             </div>

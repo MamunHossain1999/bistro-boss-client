@@ -121,6 +121,7 @@ const Login = () => {
                 <span className="label-text">Captcha</span>
               </label>
               <input
+              disabled
                 type="text"
                 ref={captchaRef}
                 name="captcha"
@@ -128,7 +129,7 @@ const Login = () => {
                 className="input input-bordered"
                 required
               />
-              <button
+              <button disabled
                 onClick={handleValidate}
                 className="btn btn-outline btn-xs mt-2"
               >
