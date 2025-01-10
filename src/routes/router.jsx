@@ -9,6 +9,11 @@ import Login from "../pages/login/Login";
 import Register from "../pages/register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Secret from "../shared/Secret/Secret";
+import Dashboard from "../LayOut/Dashboard";
+import MenuCart from "../pages/dashboard/Card/MenuCart";
+
+
+
 
  export const router = createBrowserRouter([
     {
@@ -42,4 +47,15 @@ import Secret from "../shared/Secret/Secret";
 
       ]
     },
+    {
+      path: "dashboard",
+      element: <Dashboard/>,
+      children:[
+      {
+        path: "cart",
+        element: <MenuCart/>
+      }
+      ]
+      
+    }
   ]);

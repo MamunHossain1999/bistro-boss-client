@@ -4,9 +4,11 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useCard from "../../hooks/useCard";
 
 
 const HomeCard = () => {
+  const [,refetch] = useCard();
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
@@ -38,6 +40,7 @@ const HomeCard = () => {
               showConfirmButton: false,
               timer: 1500,
             });
+            refetch();
           }
         })
     } else {
@@ -72,7 +75,7 @@ const HomeCard = () => {
         subHeading={"----Should Try----"}
         heading={"CHEF REXOMMENDS"}
       ></SectionTitle>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         {cards.map((card) => (
           <div className="card card-compact bg-base-100 w-96 shadow-xl ">
             <figure>

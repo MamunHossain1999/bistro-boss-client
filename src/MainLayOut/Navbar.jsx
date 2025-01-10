@@ -1,11 +1,15 @@
-import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import { AuthContext } from "../Provider/AuthProvider";
+
 import { FaShoppingCart } from "react-icons/fa";
 
+import useCard from "../hooks/useCard";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
+
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
-  const navigate = useNavigate(); // useNavigate hook for redirect
+  const {user, logOut} = useContext(AuthContext)
+  const [cart] = useCard();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     logOut()
@@ -35,20 +39,20 @@ const Navbar = () => {
         <Link to="/secret">Secret</Link>
       </li>
       <li>
-       
-          <button className="btn bg-gray-600 border-none">
-            <FaShoppingCart/>
-           <Link to='/'>
-           <div className="badge-secondary">+99</div>
-           </Link>
-          </button>
-      
+        <button className=" bg-orange-400 h-10  border-none">
+          <FaShoppingCart />
+          <Link to="/dashboard/cart">
+            <div className="badge ">{cart.length}</div>
+            
+          </Link>
+          
+        </button>
       </li>
     </>
   );
 
   return (
-    <div className="max-w-7xl navbar bg-base-100 fixed top-0 z-10 bg-opacity-30  text-white">
+    <div className="w-full  navbar bg-orange-700 sticky top-0 z-50 bg-opacity-60 refetch() text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
